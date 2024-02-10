@@ -1,0 +1,3504 @@
+{
+	"info": {
+		"_postman_id": "57eb27d0-f86f-40bf-89d4-1345c7a74753",
+		"name": "Ecommerce App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16942624"
+	},
+	"item": [
+		{
+			"name": "Ecommerce-Backup",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "create product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"prettier extension\r",
+											"queries passed via postman are string\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"washing machine\",\r\n    \"price\": \"1200\",\r\n    \"description\": \"Made by Redmi with love\",\r\n    \"category\": \"Mobile\",\r\n    \"images\": {\r\n        \"public_id\": \"sample_id\",\r\n        \"url\": \"sample_url\"}\r\n    // },\r\n    // \"reviews\": [\r\n    //     {\r\n    //         \"name\": \"name\",\r\n    //         \"rating\": 1,\r\n    //         \"comment\": \"value\"\r\n    //     }\r\n    // ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/product/new",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"product",
+										"new"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Vivo 11 T\",\r\n    \"price\": \"15000\",\r\n    \"description\": \"Made by Redmi with love\",\r\n    \"category\": \"Mobile\",\r\n    \"images\": {\r\n        \"public_id\": \"sample_id\",\r\n        \"url\": \"sample_url\"\r\n    },\r\n    \"reviews\": [\r\n        {\r\n            \"name\": \"name\",\r\n            \"rating\": 1,\r\n            \"comment\": \"comment\"\r\n        }\r\n    ]\r\n}\r\n\r\n/*\r\n\r\n\r\n\r\n {\r\n    \"name\": \"Fujifilm Instax Mini 12 Instant Camera-Pink\",\r\n    \"price\": 100,\r\n    \"ratings\": 0,\r\n\r\n    \"category\": \"Camera\",\r\n    \"Stock\": 18,\r\n    \"numOfReviews\": 0  }\r\n*/",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/product/65578bd2dec31e37deeb3416",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"product",
+										"65578bd2dec31e37deeb3416"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/product/654058320ebc8b08951dbeab",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"product",
+										"654058320ebc8b08951dbeab"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get product details-single",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/product/6540857fe54f8f7a2e564819",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"product",
+										"6540857fe54f8f7a2e564819"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get product details-list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"products"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "price[lt]",
+											"value": "2000",
+											"disabled": true
+										},
+										{
+											"key": "price[gt]",
+											"value": "1000",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "product",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "create order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"itemsPrice\": \"100\",\r\n    \"taxPrice\": \"10\",\r\n    \"shippingPrice\": \"40\",\r\n    \"totalPrice\": \"10000\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": \"6545c970f42e7f46c6384ef9\",\r\n            \"name\": \"Redmi Note 11\",\r\n            \"price\": \"350\",\r\n            \"quantity\": \"2\",\r\n            \"image\": \"prod.png\"\r\n        }\r\n    ],\r\n    \"shippingInfo\": {\r\n        \"address\": \"100 building number, address line 1\",\r\n        \"city\": \"pune\",\r\n        \"state\": \"MH\",\r\n        \"country\": \"IND\",\r\n        \"pinCode\": \"334455\",\r\n        \"phoneNo\": \"9988776655\"\r\n    },\r\n    \"paymentInfo\": {\r\n        \"id\": \"685864\",\r\n        \"status\": \"done\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/order/new",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"new"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"Shipped\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/order/654529c251c11b5063393998",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"order",
+										"654529c251c11b5063393998"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/order/6545ca96f42e7f46c6384f1a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"order",
+										"6545ca96f42e7f46c6384f1a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get logged-in user's order details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/orders/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get order details-single",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/order/6545ca96f42e7f46c6384f1a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"6545ca96f42e7f46c6384f1a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get order details-list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"orders"
+									],
+									"query": [
+										{
+											"key": "price[lt]",
+											"value": "2000",
+											"disabled": true
+										},
+										{
+											"key": "price[gt]",
+											"value": "1000",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "product",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "User Details-Single",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Details-Single [admin]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/user/65413bc226e213104ddaa1b8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"65413bc226e213104ddaa1b8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Details-list [admin]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User Role [admin]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Harshad Kadam\",\r\n    \"email\": \"kdm2@gamail.com\",\r\n    \"role\": \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/user/65413cd926e213104ddaa1ba",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"65413cd926e213104ddaa1ba"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User[admin]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/user/65413cd926e213104ddaa1ba",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"65413cd926e213104ddaa1ba"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Password Update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oldPassword\": \"11111111\",\r\n    \"newPassword\": \"11111111\",\r\n    \"confirmPassword\": \"11111111\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/password/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"password",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Profile Update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"admin admin7\",\r\n    \"email\": \"vdq21751@zslsz.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/me/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"me",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Product Review",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rating\": \"4\",\r\n    \"comment\": \"value for money\",\r\n    \"productId\": \"6544bb0ec66a9f086339a150\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/review",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"review"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Reviews",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/reviews?id=6544bb0ec66a9f086339a150",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"reviews"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6544bb0ec66a9f086339a150"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Review",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/reviews?productId=6544bb0ec66a9f086339a150&id=6544bb44c66a9f086339a156",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"reviews"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "6544bb0ec66a9f086339a150"
+										},
+										{
+											"key": "id",
+											"value": "6544bb44c66a9f086339a156"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "User Registration",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"admin admin7\",\r\n    \"email\": \"vdq21751@zslsz.com\",\r\n    \"password\": \"admin@1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"harshad19081998@gmail.com\",\r\n    \"password\": \"Harshad@12345\"\r\n}\r\n\r\n// {\r\n//     \"email\": \"yqq14825@nezid.com\",\r\n//     \"password\": \"admin@1234\"\r\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"vdq21751@zslsz.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/password/forgot",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"password",
+										"forgot"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"11111111\",\r\n    \"confirmPassword\": \"11111111\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/password/reset/4141497ba0a5217f6ff0f50435c843013bc1c0cb",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"password",
+										"reset",
+										"4141497ba0a5217f6ff0f50435c843013bc1c0cb"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "This folder used for User authentication request collection for Ecommerce Application.\n\n<img src=\"https://www.google.com/imgres?imgurl=https://www.securecoding.com/wp-content/uploads/2021/07/Refine-Blogs_4-copy-24.png&amp;tbnid=LHycLDRquLM9iM&amp;vet=12ahUKEwiC6vT95qCCAxXM2jgGHYefAI4QMygNegUIARCIAQ..i&amp;imgrefurl=https://www.securecoding.com/blog/secure-authentication/&amp;docid=0tFNdJZWcoB6cM&amp;w=1171&amp;h=413&amp;q=authentication&amp;ved=2ahUKEwiC6vT95qCCAxXM2jgGHYefAI4QMygNegUIARCIAQ\">\n\n<img src=\"https://content.pstmn.io/4bc2e569-27ee-4ba6-bef5-c3c4194fb2fb/QXV0aC5wbmc=\">"
+				}
+			],
+			"description": "<img src=\"https://content.pstmn.io/f715a15a-93b8-40f2-bd70-607e0579b949/cG5ndHJlZS1idXNpbmVzcy1jb25jZXB0LW9mLW9ubGluZS1zaG9wcGluZy1lLWNvbW1lcmNlLXBuZy5qcGc=\">"
+		},
+		{
+			"name": "Ecommerce-NodeJs",
+			"item": [
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "create product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"prettier extension\r",
+											"queries passed via postman are string\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"washing machine\",\r\n    \"price\": \"1200\",\r\n    \"description\": \"Made by Redmi with love\",\r\n    \"category\": \"Mobile\",\r\n    \"images\": {\r\n        \"public_id\": \"sample_id\",\r\n        \"url\": \"sample_url\"}\r\n    // },\r\n    // \"reviews\": [\r\n    //     {\r\n    //         \"name\": \"name\",\r\n    //         \"rating\": 1,\r\n    //         \"comment\": \"value\"\r\n    //     }\r\n    // ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/product/new",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"product",
+										"new"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Vivo 11 T\",\r\n    \"price\": \"15000\",\r\n    \"description\": \"Made by Redmi with love\",\r\n    \"category\": \"Mobile\",\r\n    \"images\": {\r\n        \"public_id\": \"sample_id\",\r\n        \"url\": \"sample_url\"\r\n    },\r\n    \"reviews\": [\r\n        {\r\n            \"name\": \"name\",\r\n            \"rating\": 1,\r\n            \"comment\": \"comment\"\r\n        }\r\n    ]\r\n}\r\n\r\n/*\r\n\r\n\r\n\r\n {\r\n    \"name\": \"Fujifilm Instax Mini 12 Instant Camera-Pink\",\r\n    \"price\": 100,\r\n    \"ratings\": 0,\r\n\r\n    \"category\": \"Camera\",\r\n    \"Stock\": 18,\r\n    \"numOfReviews\": 0  }\r\n*/",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/product/65578bd2dec31e37deeb3416",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"product",
+										"65578bd2dec31e37deeb3416"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/product/654058320ebc8b08951dbeab",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"product",
+										"654058320ebc8b08951dbeab"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get product details-single",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/product/6566113a015a7d424af5fcd3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"product",
+										"6566113a015a7d424af5fcd3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get product details-list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"products"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "price[lt]",
+											"value": "2000",
+											"disabled": true
+										},
+										{
+											"key": "price[gt]",
+											"value": "1000",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "product",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "Review",
+							"item": [
+								{
+									"name": "Create Review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"itemsPrice\": \"100\",\r\n    \"taxPrice\": \"10\",\r\n    \"shippingPrice\": \"40\",\r\n    \"totalPrice\": \"10000\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": \"6545c970f42e7f46c6384ef9\",\r\n            \"name\": \"Redmi Note 11\",\r\n            \"price\": \"350\",\r\n            \"quantity\": \"2\",\r\n            \"image\": \"prod.png\"\r\n        }\r\n    ],\r\n    \"shippingInfo\": {\r\n        \"address\": \"100 building number, address line 1\",\r\n        \"city\": \"pune\",\r\n        \"state\": \"MH\",\r\n        \"country\": \"IND\",\r\n        \"pinCode\": \"334455\",\r\n        \"phoneNo\": \"9988776655\"\r\n    },\r\n    \"paymentInfo\": {\r\n        \"id\": \"685864\",\r\n        \"status\": \"done\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:4000/api/v1/review",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "4000",
+											"path": [
+												"api",
+												"v1",
+												"review"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Reviews",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"itemsPrice\": \"100\",\r\n    \"taxPrice\": \"10\",\r\n    \"shippingPrice\": \"40\",\r\n    \"totalPrice\": \"10000\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": \"6545c970f42e7f46c6384ef9\",\r\n            \"name\": \"Redmi Note 11\",\r\n            \"price\": \"350\",\r\n            \"quantity\": \"2\",\r\n            \"image\": \"prod.png\"\r\n        }\r\n    ],\r\n    \"shippingInfo\": {\r\n        \"address\": \"100 building number, address line 1\",\r\n        \"city\": \"pune\",\r\n        \"state\": \"MH\",\r\n        \"country\": \"IND\",\r\n        \"pinCode\": \"334455\",\r\n        \"phoneNo\": \"9988776655\"\r\n    },\r\n    \"paymentInfo\": {\r\n        \"id\": \"685864\",\r\n        \"status\": \"done\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:4000/api/v1/reviews",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "4000",
+											"path": [
+												"api",
+												"v1",
+												"reviews"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"itemsPrice\": \"100\",\r\n    \"taxPrice\": \"10\",\r\n    \"shippingPrice\": \"40\",\r\n    \"totalPrice\": \"10000\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": \"6545c970f42e7f46c6384ef9\",\r\n            \"name\": \"Redmi Note 11\",\r\n            \"price\": \"350\",\r\n            \"quantity\": \"2\",\r\n            \"image\": \"prod.png\"\r\n        }\r\n    ],\r\n    \"shippingInfo\": {\r\n        \"address\": \"100 building number, address line 1\",\r\n        \"city\": \"pune\",\r\n        \"state\": \"MH\",\r\n        \"country\": \"IND\",\r\n        \"pinCode\": \"334455\",\r\n        \"phoneNo\": \"9988776655\"\r\n    },\r\n    \"paymentInfo\": {\r\n        \"id\": \"685864\",\r\n        \"status\": \"done\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:4000/api/v1/reviews",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "4000",
+											"path": [
+												"api",
+												"v1",
+												"reviews"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "create order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"itemsPrice\": \"100\",\r\n    \"taxPrice\": \"10\",\r\n    \"shippingPrice\": \"40\",\r\n    \"totalPrice\": \"10000\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": \"6545c970f42e7f46c6384ef9\",\r\n            \"name\": \"Redmi Note 11\",\r\n            \"price\": \"350\",\r\n            \"quantity\": \"2\",\r\n            \"image\": \"prod.png\"\r\n        }\r\n    ],\r\n    \"shippingInfo\": {\r\n        \"address\": \"100 building number, address line 1\",\r\n        \"city\": \"pune\",\r\n        \"state\": \"MH\",\r\n        \"country\": \"IND\",\r\n        \"pinCode\": \"334455\",\r\n        \"phoneNo\": \"9988776655\"\r\n    },\r\n    \"paymentInfo\": {\r\n        \"id\": \"685864\",\r\n        \"status\": \"done\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/order/new",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"new"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"Shipped\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/order/6564ad331fbf7874290305ed",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"order",
+										"6564ad331fbf7874290305ed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/order/6545ca96f42e7f46c6384f1a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"order",
+										"6545ca96f42e7f46c6384f1a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get logged-in user's order details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/orders/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get order details-single",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/order/6545ca96f42e7f46c6384f1a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"6545ca96f42e7f46c6384f1a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get order details-list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"orders"
+									],
+									"query": [
+										{
+											"key": "price[lt]",
+											"value": "2000",
+											"disabled": true
+										},
+										{
+											"key": "price[gt]",
+											"value": "1000",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "product",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "User Details-Single",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Details-Single [admin]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/user/65413bc226e213104ddaa1b8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"65413bc226e213104ddaa1b8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Details-list [admin]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User Role [admin]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Harshad Kadam\",\r\n    \"email\": \"kdm2@gamail.com\",\r\n    \"role\": \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/user/65413cd926e213104ddaa1ba",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"65413cd926e213104ddaa1ba"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User[admin]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/user/65413cd926e213104ddaa1ba",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"65413cd926e213104ddaa1ba"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Password Update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oldPassword\": \"11111111\",\r\n    \"newPassword\": \"11111111\",\r\n    \"confirmPassword\": \"11111111\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/password/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"password",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Profile Update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"admin admin7\",\r\n    \"email\": \"vdq21751@zslsz.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/me/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"me",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Product Review",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rating\": \"4\",\r\n    \"comment\": \"value for money\",\r\n    \"productId\": \"6544bb0ec66a9f086339a150\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/review",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"review"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Reviews",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/reviews?id=6544bb0ec66a9f086339a150",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"reviews"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6544bb0ec66a9f086339a150"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Review",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/reviews?productId=6544bb0ec66a9f086339a150&id=6544bb44c66a9f086339a156",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"reviews"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "6544bb0ec66a9f086339a150"
+										},
+										{
+											"key": "id",
+											"value": "6544bb44c66a9f086339a156"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "User Registration",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"admin admin7\",\r\n    \"email\": \"vdq21751@zslsz.com\",\r\n    \"password\": \"admin@1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"harshad19081998@gmail.com\",\r\n    \"password\": \"Harshad@12345\"\r\n}\r\n\r\n// {\r\n//     \"email\": \"yqq14825@nezid.com\",\r\n//     \"password\": \"admin@1234\"\r\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"vdq21751@zslsz.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/password/forgot",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"password",
+										"forgot"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"11111111\",\r\n    \"confirmPassword\": \"11111111\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/password/reset/4141497ba0a5217f6ff0f50435c843013bc1c0cb",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"password",
+										"reset",
+										"4141497ba0a5217f6ff0f50435c843013bc1c0cb"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "This folder used for User authentication request collection for Ecommerce Application.\n\n<img src=\"https://www.google.com/imgres?imgurl=https://www.securecoding.com/wp-content/uploads/2021/07/Refine-Blogs_4-copy-24.png&amp;tbnid=LHycLDRquLM9iM&amp;vet=12ahUKEwiC6vT95qCCAxXM2jgGHYefAI4QMygNegUIARCIAQ..i&amp;imgrefurl=https://www.securecoding.com/blog/secure-authentication/&amp;docid=0tFNdJZWcoB6cM&amp;w=1171&amp;h=413&amp;q=authentication&amp;ved=2ahUKEwiC6vT95qCCAxXM2jgGHYefAI4QMygNegUIARCIAQ\">\n\n<img src=\"https://content.pstmn.io/4bc2e569-27ee-4ba6-bef5-c3c4194fb2fb/QXV0aC5wbmc=\">"
+				}
+			],
+			"description": "<img src=\"https://content.pstmn.io/091e2884-b519-419e-864f-cb88c9e1ef08/cG5ndHJlZS1idXNpbmVzcy1jb25jZXB0LW9mLW9ubGluZS1zaG9wcGluZy1lLWNvbW1lcmNlLXBuZy5qcGc=\" alt=\"\">"
+		},
+		{
+			"name": "Ecommerce-SpringBoot",
+			"item": [
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "Review Copy",
+							"item": [
+								{
+									"name": "Create Review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"itemsPrice\": \"100\",\r\n    \"taxPrice\": \"10\",\r\n    \"shippingPrice\": \"40\",\r\n    \"totalPrice\": \"10000\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": \"6545c970f42e7f46c6384ef9\",\r\n            \"name\": \"Redmi Note 11\",\r\n            \"price\": \"350\",\r\n            \"quantity\": \"2\",\r\n            \"image\": \"prod.png\"\r\n        }\r\n    ],\r\n    \"shippingInfo\": {\r\n        \"address\": \"100 building number, address line 1\",\r\n        \"city\": \"pune\",\r\n        \"state\": \"MH\",\r\n        \"country\": \"IND\",\r\n        \"pinCode\": \"334455\",\r\n        \"phoneNo\": \"9988776655\"\r\n    },\r\n    \"paymentInfo\": {\r\n        \"id\": \"685864\",\r\n        \"status\": \"done\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/v1/review",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"v1",
+												"review"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Reviews",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"itemsPrice\": \"100\",\r\n    \"taxPrice\": \"10\",\r\n    \"shippingPrice\": \"40\",\r\n    \"totalPrice\": \"10000\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": \"6545c970f42e7f46c6384ef9\",\r\n            \"name\": \"Redmi Note 11\",\r\n            \"price\": \"350\",\r\n            \"quantity\": \"2\",\r\n            \"image\": \"prod.png\"\r\n        }\r\n    ],\r\n    \"shippingInfo\": {\r\n        \"address\": \"100 building number, address line 1\",\r\n        \"city\": \"pune\",\r\n        \"state\": \"MH\",\r\n        \"country\": \"IND\",\r\n        \"pinCode\": \"334455\",\r\n        \"phoneNo\": \"9988776655\"\r\n    },\r\n    \"paymentInfo\": {\r\n        \"id\": \"685864\",\r\n        \"status\": \"done\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/v1/reviews?productId=65672a6315c9ec36c12b346c",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"v1",
+												"reviews"
+											],
+											"query": [
+												{
+													"key": "productId",
+													"value": "65672a6315c9ec36c12b346c"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"itemsPrice\": \"100\",\r\n    \"taxPrice\": \"10\",\r\n    \"shippingPrice\": \"40\",\r\n    \"totalPrice\": \"10000\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": \"6545c970f42e7f46c6384ef9\",\r\n            \"name\": \"Redmi Note 11\",\r\n            \"price\": \"350\",\r\n            \"quantity\": \"2\",\r\n            \"image\": \"prod.png\"\r\n        }\r\n    ],\r\n    \"shippingInfo\": {\r\n        \"address\": \"100 building number, address line 1\",\r\n        \"city\": \"pune\",\r\n        \"state\": \"MH\",\r\n        \"country\": \"IND\",\r\n        \"pinCode\": \"334455\",\r\n        \"phoneNo\": \"9988776655\"\r\n    },\r\n    \"paymentInfo\": {\r\n        \"id\": \"685864\",\r\n        \"status\": \"done\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/v1/reviews",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"v1",
+												"reviews"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "create product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"prettier extension\r",
+											"queries passed via postman are string\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"washing machine\",\r\n    \"price\": \"1200\",\r\n    \"description\": \"Made by Redmi with love\",\r\n    \"category\": \"Mobile\",\r\n    \"images\": [{\r\n        \"public_id\": \"sample_id\",\r\n        \"url\": \"sample_url\"}\r\n ]\r\n    // \"reviews\": [\r\n    //     {\r\n    //         \"name\": \"name\",\r\n    //         \"rating\": 1,\r\n    //         \"comment\": \"value\"\r\n    //     }\r\n    // ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/admin/product/new",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"product",
+										"new"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product\": {\r\n        \"id\": \"6566113a015a7d424af5fcd3\",\r\n        \"name\": \"washing machine\",\r\n        \"description\": \"Made by Redmi with love\",\r\n        \"price\": 1200.0,\r\n        \"ratings\": 0.0,\r\n        \"images\": [\r\n            {\r\n                \"publicId\": \"sample_public_id\",\r\n                \"url\": \"sample_secure_url\"\r\n            }\r\n        ],\r\n        \"category\": \"Mobile\",\r\n        \"stock\": 0,\r\n        \"numOfReviews\": 0,\r\n        \"reviews\": null,\r\n        \"user\": null,\r\n        \"createdAt\": null,\r\n        \"updatedAt\": null\r\n    }}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/admin/product/6566113a015a7d424af5fcd3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"product",
+										"6566113a015a7d424af5fcd3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/admin/product/65661ea60f8bdf0ee6dccf38",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"product",
+										"65661ea60f8bdf0ee6dccf38"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get product details-single",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/product/6566113a015a7d424af5fcd3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"product",
+										"6566113a015a7d424af5fcd3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get product details-list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/products?page=2&price[lt]=2000&price[gt]=1000&keyword=product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"products"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										},
+										{
+											"key": "price[lt]",
+											"value": "2000"
+										},
+										{
+											"key": "price[gt]",
+											"value": "1000"
+										},
+										{
+											"key": "keyword",
+											"value": "product"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "create order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "addad",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"createdAt\": \"2023-11-27T07:53:23.142Z\",\r\n  \"deliveredAt\": \"2023-11-27T07:53:23.142Z\",\r\n  \"id\": \"6564bf09cd959fe06b3611by\",\r\n  \"itemsPrice\": 0,\r\n  \"orderItems\": [\r\n    {\r\n      \"image\": \"string\",\r\n      \"name\": \"string\",\r\n      \"price\": 0,\r\n      \"product\": {\r\n        \"category\": \"string\",\r\n        \"createdAt\": \"2023-11-27T07:53:23.143Z\",\r\n        \"description\": \"string\",\r\n        \"id\": \"string\",\r\n        \"images\": [\r\n          {\r\n            \"publicId\": \"string\",\r\n            \"url\": \"string\"\r\n          }\r\n        ],\r\n        \"name\": \"string\",\r\n        \"numOfReviews\": 0,\r\n        \"price\": 0,\r\n        \"ratings\": 0,\r\n        \"reviews\": [\r\n          {\r\n            \"comment\": \"string\",\r\n            \"name\": \"string\",\r\n            \"rating\": 0,\r\n            \"user\": {\r\n              \"avatar\": {\r\n                \"publicId\": \"string\",\r\n                \"url\": \"string\"\r\n              },\r\n              \"createdAt\": \"2023-11-27T07:53:23.143Z\",\r\n              \"email\": \"string\",\r\n              \"id\": \"string\",\r\n              \"name\": \"string\",\r\n              \"password\": \"string\",\r\n              \"resetPasswordExpire\": \"2023-11-27T07:53:23.143Z\",\r\n              \"resetPasswordToken\": \"string\",\r\n              \"role\": \"string\"\r\n            }\r\n          }\r\n        ],\r\n        \"stock\": 0,\r\n        \"updatedAt\": \"2023-11-27T07:53:23.143Z\",\r\n        \"user\": {\r\n          \"avatar\": {\r\n            \"publicId\": \"string\",\r\n            \"url\": \"string\"\r\n          },\r\n          \"createdAt\": \"2023-11-27T07:53:23.143Z\",\r\n          \"email\": \"string\",\r\n          \"id\": \"string\",\r\n          \"name\": \"string\",\r\n          \"password\": \"string\",\r\n          \"resetPasswordExpire\": \"2023-11-27T07:53:23.143Z\",\r\n          \"resetPasswordToken\": \"string\",\r\n          \"role\": \"string\"\r\n        }\r\n      },\r\n      \"quantity\": 0\r\n    }\r\n  ],\r\n  \"orderStatus\": \"PROCESSING\",\r\n  \"paidAt\": \"2023-11-27T07:53:23.143Z\",\r\n  \"paymentInfo\": {\r\n    \"id\": \"string\",\r\n    \"status\": \"string\"\r\n  },\r\n  \"shippingInfo\": {\r\n    \"address\": \"string\",\r\n    \"city\": \"string\",\r\n    \"country\": \"string\",\r\n    \"phoneNo\": 0,\r\n    \"pinCode\": 0,\r\n    \"state\": \"string\"\r\n  },\r\n  \"shippingPrice\": 0,\r\n  \"taxPrice\": 0,\r\n  \"totalPrice\": 0,\r\n  \"updatedAt\": \"2023-11-27T07:53:23.143Z\",\r\n  \"user\": {\r\n    \"avatar\": {\r\n      \"publicId\": \"string\",\r\n      \"url\": \"string\"\r\n    },\r\n    \"createdAt\": \"2023-11-27T07:53:23.143Z\",\r\n    \"email\": \"string\",\r\n    \"id\": \"string\",\r\n    \"name\": \"string\",\r\n    \"password\": \"string\",\r\n    \"resetPasswordExpire\": \"2023-11-27T07:53:23.143Z\",\r\n    \"resetPasswordToken\": \"string\",\r\n    \"role\": \"string\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/order/new",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"new"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"createdAt\": \"2023-11-27T07:53:23.158Z\",\r\n  \"deliveredAt\": \"2023-11-27T07:53:23.158Z\",\r\n  \"id\": \"string\",\r\n  \"itemsPrice\": 0,\r\n  \"orderItems\": [\r\n    {\r\n      \"image\": \"string\",\r\n      \"name\": \"string\",\r\n      \"price\": 0,\r\n      \"product\": {\r\n        \"category\": \"string\",\r\n        \"createdAt\": \"2023-11-27T07:53:23.158Z\",\r\n        \"description\": \"string\",\r\n        \"id\": \"string\",\r\n        \"images\": [\r\n          {\r\n            \"publicId\": \"string\",\r\n            \"url\": \"string\"\r\n          }\r\n        ],\r\n        \"name\": \"string\",\r\n        \"numOfReviews\": 0,\r\n        \"price\": 0,\r\n        \"ratings\": 0,\r\n        \"reviews\": [\r\n          {\r\n            \"comment\": \"string\",\r\n            \"name\": \"string\",\r\n            \"rating\": 0,\r\n            \"user\": {\r\n              \"avatar\": {\r\n                \"publicId\": \"string\",\r\n                \"url\": \"string\"\r\n              },\r\n              \"createdAt\": \"2023-11-27T07:53:23.158Z\",\r\n              \"email\": \"string\",\r\n              \"id\": \"string\",\r\n              \"name\": \"string\",\r\n              \"password\": \"string\",\r\n              \"resetPasswordExpire\": \"2023-11-27T07:53:23.158Z\",\r\n              \"resetPasswordToken\": \"string\",\r\n              \"role\": \"string\"\r\n            }\r\n          }\r\n        ],\r\n        \"stock\": 0,\r\n        \"updatedAt\": \"2023-11-27T07:53:23.158Z\",\r\n        \"user\": {\r\n          \"avatar\": {\r\n            \"publicId\": \"string\",\r\n            \"url\": \"string\"\r\n          },\r\n          \"createdAt\": \"2023-11-27T07:53:23.158Z\",\r\n          \"email\": \"string\",\r\n          \"id\": \"string\",\r\n          \"name\": \"string\",\r\n          \"password\": \"string\",\r\n          \"resetPasswordExpire\": \"2023-11-27T07:53:23.158Z\",\r\n          \"resetPasswordToken\": \"string\",\r\n          \"role\": \"string\"\r\n        }\r\n      },\r\n      \"quantity\": 0\r\n    }\r\n  ],\r\n  \"orderStatus\": \"Shipped\",\r\n  \"paidAt\": \"2023-11-27T07:53:23.158Z\",\r\n  \"paymentInfo\": {\r\n    \"id\": \"string\",\r\n    \"status\": \"string\"\r\n  },\r\n  \"shippingInfo\": {\r\n    \"address\": \"string\",\r\n    \"city\": \"string\",\r\n    \"country\": \"string\",\r\n    \"phoneNo\": 0,\r\n    \"pinCode\": 0,\r\n    \"state\": \"string\"\r\n  },\r\n  \"shippingPrice\": 0,\r\n  \"taxPrice\": 0,\r\n  \"totalPrice\": 0,\r\n  \"updatedAt\": \"2023-11-27T07:53:23.158Z\",\r\n  \"user\": {\r\n    \"avatar\": {\r\n      \"publicId\": \"string\",\r\n      \"url\": \"string\"\r\n    },\r\n    \"createdAt\": \"2023-11-27T07:53:23.158Z\",\r\n    \"email\": \"string\",\r\n    \"id\": \"string\",\r\n    \"name\": \"string\",\r\n    \"password\": \"string\",\r\n    \"resetPasswordExpire\": \"2023-11-27T07:53:23.158Z\",\r\n    \"resetPasswordToken\": \"string\",\r\n    \"role\": \"string\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/admin/order/6564ad331fbf7874290305ed",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"order",
+										"6564ad331fbf7874290305ed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/admin/order/6564bf09cd959fe06b3611be",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"order",
+										"6564bf09cd959fe06b3611be"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get logged-in user's order details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/orders/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get order details-single",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/order/string",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"string"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get order details-list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"orders"
+									],
+									"query": [
+										{
+											"key": "price[lt]",
+											"value": "2000",
+											"disabled": true
+										},
+										{
+											"key": "price[gt]",
+											"value": "1000",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "product",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "User Details-Single",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Details-Single [admin]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/user/65413bc226e213104ddaa1b8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"65413bc226e213104ddaa1b8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Details-list [admin]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User Role [admin]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Harshad Kadam\",\r\n    \"email\": \"kdm2@gamail.com\",\r\n    \"role\": \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/user/65413cd926e213104ddaa1ba",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"65413cd926e213104ddaa1ba"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User[admin]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/admin/user/65413cd926e213104ddaa1ba",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"65413cd926e213104ddaa1ba"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Password Update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oldPassword\": \"11111111\",\r\n    \"newPassword\": \"11111111\",\r\n    \"confirmPassword\": \"11111111\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/password/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"password",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Profile Update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"admin admin7\",\r\n    \"email\": \"vdq21751@zslsz.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/me/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"me",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Product Review",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rating\": \"4\",\r\n    \"comment\": \"value for money\",\r\n    \"productId\": \"6544bb0ec66a9f086339a150\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/review",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"review"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Reviews",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/reviews?id=6544bb0ec66a9f086339a150",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"reviews"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6544bb0ec66a9f086339a150"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Review",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/reviews?productId=6544bb0ec66a9f086339a150&id=6544bb44c66a9f086339a156",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"reviews"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "6544bb0ec66a9f086339a150"
+										},
+										{
+											"key": "id",
+											"value": "6544bb44c66a9f086339a156"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "User Registration",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"admin admin7\",\r\n    \"email\": \"vdq21751@zslsz.com\",\r\n    \"password\": \"admin@1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"harshad19081998@gmail.com\",\r\n    \"password\": \"Harshad@12345\"\r\n}\r\n\r\n// {\r\n//     \"email\": \"yqq14825@nezid.com\",\r\n//     \"password\": \"admin@1234\"\r\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"vdq21751@zslsz.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/password/forgot",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"password",
+										"forgot"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"11111111\",\r\n    \"confirmPassword\": \"11111111\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/password/reset/4141497ba0a5217f6ff0f50435c843013bc1c0cb",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"password",
+										"reset",
+										"4141497ba0a5217f6ff0f50435c843013bc1c0cb"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"npm i mongoose\r",
+											"\r",
+											"*/"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "This folder used for User authentication request collection for Ecommerce Application.\n\n<img src=\"https://www.google.com/imgres?imgurl=https://www.securecoding.com/wp-content/uploads/2021/07/Refine-Blogs_4-copy-24.png&amp;tbnid=LHycLDRquLM9iM&amp;vet=12ahUKEwiC6vT95qCCAxXM2jgGHYefAI4QMygNegUIARCIAQ..i&amp;imgrefurl=https://www.securecoding.com/blog/secure-authentication/&amp;docid=0tFNdJZWcoB6cM&amp;w=1171&amp;h=413&amp;q=authentication&amp;ved=2ahUKEwiC6vT95qCCAxXM2jgGHYefAI4QMygNegUIARCIAQ\">\n\n<img src=\"https://content.pstmn.io/4bc2e569-27ee-4ba6-bef5-c3c4194fb2fb/QXV0aC5wbmc=\">"
+				},
+				{
+					"name": "api-create order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-EC-Version",
+								"value": "01-01-2024",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itemsPrice\": \"100\",\r\n    \"taxPrice\": \"10\",\r\n    \"shippingPrice\": \"40\",\r\n    \"totalPrice\": \"10000\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": \"6545c970f42e7f46c6384ef9\",\r\n            \"name\": \"Redmi Note 11\",\r\n            \"price\": \"350\",\r\n            \"quantity\": \"2\",\r\n            \"image\": \"prod.png\"\r\n        }\r\n    ],\r\n    \"shippingInfo\": {\r\n        \"address\": \"100 building number, address line 1\",\r\n        \"city\": \"pune\",\r\n        \"state\": \"MH\",\r\n        \"country\": \"IND\",\r\n        \"pinCode\": \"334455\",\r\n        \"phoneNo\": \"9988776655\"\r\n    },\r\n    \"paymentInfo\": {\r\n        \"id\": \"685864\",\r\n        \"status\": \"done\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kadamharshad25-eval-test.apigee.net/ecommerce/order/new",
+							"protocol": "https",
+							"host": [
+								"kadamharshad25-eval-test",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"ecommerce",
+								"order",
+								"new"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"/*",
+					"A pre-request script associated with a collection will run prior to every request in the collection.",
+					"*/"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"/*",
+					"A test script associated with a collection will run after every request in the collection. ",
+					"*/"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "PaymentMethodOwnerTestData",
+			"value": "MER_76ca0040b07e418db8b567fb704f418c"
+		}
+	]
+}
