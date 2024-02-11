@@ -90,7 +90,7 @@ We welcome contributions from the community to improve our APIs and documentatio
 
 ## License
 
-This project is licensed under the [MIT License]([link-to-license](https://github.com/harshad-kadam/PostmanCollections/blob/main/LICENSE). See the LICENSE file for details.
+This project is licensed under the [MIT License]([link-to-license](https://github.com/harshad-kadam/PostmanCollections/blob/main/LICENSE)). See the LICENSE file for details.
 
 ---
 
