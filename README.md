@@ -28,9 +28,9 @@ Before you start using our APIs, it's essential to set up your environment corre
 
 We've prepared Postman collections to streamline your API testing and development process. These collections contain pre-configured requests for various endpoints and scenarios, making it easy to explore and interact with our APIs.
 
-- [Collection 1: Basic Authentication](link-to-collection-1)
-- [Collection 2: Advanced Features](link-to-collection-2)
-- [Collection 3: Use Case Examples](link-to-collection-3)
+- [Collection 1: Basic Authentication]([link-to-collection-1](https://github.com/harshad-kadam/PostmanCollections/blob/main/Ecommerce%20App.postman_collection.json))
+- [Collection 2: Advanced Features]([link-to-collection-2](https://github.com/harshad-kadam/PostmanCollections/blob/main/Ecommerce%20App.postman_collection.json))
+- [Collection 3: Use Case Examples]([link-to-collection-3](https://github.com/harshad-kadam/PostmanCollections/blob/main/Ecommerce%20App.postman_collection.json))
 
 ## Use Cases
 
@@ -90,7 +90,7 @@ We welcome contributions from the community to improve our APIs and documentatio
 
 ## License
 
-This project is licensed under the [MIT License](link-to-license). See the LICENSE file for details.
+This project is licensed under the [MIT License]([link-to-license](https://github.com/harshad-kadam/PostmanCollections/blob/main/LICENSE). See the LICENSE file for details.
 
 ---
 
